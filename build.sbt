@@ -11,7 +11,7 @@ crossScalaVersions := Seq("2.9.2", "2.10.0")
 scalacOptions ++= Seq("-unchecked", "-deprecation")
 
 // Hard coded url for now
-libraryDependencies += "com.earldouglas" %% " xsbt-web-plugin_2.10_0.12" % "0.3.0" from "https://oss.sonatype.org/content/repositories/releases/com/earldouglas/xsbt-web-plugin_2.10_0.12/0.3.0/xsbt-web-plugin-0.3.0.jar"
+libraryDependencies += "com.earldouglas" %% " xsbt-web-plugin_2.10_0.12" % "0.3.0" % "provided" from "https://oss.sonatype.org/content/repositories/releases/com/earldouglas/xsbt-web-plugin_2.10_0.12/0.3.0/xsbt-web-plugin-0.3.0.jar"
 
 seq(ScriptedPlugin.scriptedSettings: _*)
 
