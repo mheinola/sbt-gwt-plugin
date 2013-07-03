@@ -1,3 +1,10 @@
+SBT Plugin for Vaadin GWT compile
+===
+
+Since Vaadin wrongly includes old dependencies in their client compiler dependencies, GWT compiler for SBT must be changed to use the vaadin-client-compiler and vaadin-client-compiler-deps in the library dependencies.
+
+Forked from project <https://github.com/thunderklaus/sbt-gwt-plugin> and is not deployed on any public server.
+
 Usage
 ====
 
@@ -5,7 +12,7 @@ Add the plugin to your project in `project/plugins.sbt`:
 
     resolvers += "GWT plugin repo" at "http://thunderklaus.github.com/maven"
 
-    addSbtPlugin("net.thunderklaus" % "sbt-gwt-plugin" % "1.1-SNAPSHOT")
+    addSbtPlugin("net.thunderklaus" % "sbt-gwt-plugin" % "1.2-SNAPSHOT")
 
 Add the GWT settings to your project in `build.sbt`:
 
@@ -49,9 +56,9 @@ You can also test your `gwt-compile`d app with Jetty, by running `jetty-run` fol
 Settings
 ---
 
-The default GWT version is 2.3.0 which can be overridden like this:
+The default GWT version is 2.4.0 which can be overridden like this:
 
-    gwtVersion := "2.2.0"
+    gwtVersion := "2.3.0"
 
 By default, all GWT modules in the source directory are compiled. You can specify which ones to build like this:
 
@@ -64,7 +71,7 @@ Additional arguments can be passed to the JVM used to run GWT devmode and the GW
 See also
 ---
 
-The GWT settings include the web settings from the project <https://github.com/siasia/xsbt-web-plugin>. So, all tasks from that plugin are also available. Have a look at the documentation there.
+The GWT settings include the web settings from the project <https://github.com/JamesEarlDouglas/xsbt-web-plugin>. So, all tasks from that plugin are also available. Have a look at the documentation there.
 
 License
 ---

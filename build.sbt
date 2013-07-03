@@ -4,12 +4,19 @@ organization := "net.thunderklaus"
 
 name := "sbt-gwt-plugin"
 
-version := "1.1-SNAPSHOT"
+version := "1.2-SNAPSHOT"
 
-libraryDependencies <+= sbtVersion(v => "com.github.siasia" %% "xsbt-web-plugin" % (v+"-0.2.11.1"))
+crossScalaVersions := Seq("2.9.2", "2.10.0")
+
+scalacOptions ++= Seq("-unchecked", "-deprecation")
+
+// Hard coded url for now
+libraryDependencies += "com.earldouglas" %% " xsbt-web-plugin_2.10_0.12" % "0.3.0" from "https://oss.sonatype.org/content/repositories/releases/com/earldouglas/xsbt-web-plugin_2.10_0.12/0.3.0/xsbt-web-plugin-0.3.0.jar"
 
 seq(ScriptedPlugin.scriptedSettings: _*)
 
 publishMavenStyle := true
 
-publishTo := Some(Resolver.file("Local", Path.userHome / "thunderklaus.github.com" / "maven" asFile)(Patterns(true, Resolver.mavenStyleBasePattern)))
+publishTo := Some("Sonatype Nexus Repository Manager" at System.getProperty("nexusRepositoryUrl", "none"))
+
+credentials += Credentials("Sonatype Nexus Repository Manager", System.getProperty("nexusUrl", "none"), System.getProperty("nexusUser", "none"), System.getProperty("nexusPassword", "none"))
