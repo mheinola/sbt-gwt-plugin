@@ -14,7 +14,8 @@ crossScalaVersions := Seq("2.9.2", "2.10.0", "2.10.2")
 
 scalacOptions ++= Seq("-unchecked", "-deprecation")
 
-addSbtPlugin("com.earldouglas" % "xsbt-web-plugin" % "0.4.2") % "provided" from "https://oss.sonatype.org/content/repositories/releases/com/earldouglas/xsbt-web-plugin_2.10_0.13/0.4.2/xsbt-web-plugin-0.4.2.jar"
+//addSbtPlugin("com.earldouglas" % "xsbt-web-plugin" % "0.4.2")
+addSbtPlugin("com.earldouglas" % "xsbt-web-plugin" % "0.4.2" % "provided" from "https://oss.sonatype.org/content/repositories/releases/com/earldouglas/xsbt-web-plugin_2.10_0.13/0.4.2/xsbt-web-plugin-0.4.2.jar")
 
 seq(ScriptedPlugin.scriptedSettings: _*)
 
