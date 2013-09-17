@@ -10,7 +10,7 @@ sbtVersion in Global := "0.13.0"
 
 scalaVersion in Global := "2.10.2"
 
-crossScalaVersions := Seq("2.9.2", "2.10.0", "2.10.2")
+crossScalaVersions := Seq("2.10.0", "2.10.2")
 
 scalacOptions ++= Seq("-unchecked", "-deprecation")
 
