@@ -52,7 +52,7 @@ object GwtPlugin extends Plugin {
     gwtVersion := "2.4.0",
     gwtForceCompile := false,
     gaeSdkPath := None,
-    vaadinCompilerVersion := "7.1.0",
+    vaadinCompilerVersion := "7.1.5",
     libraryDependencies <++= vaadinCompilerVersion(vaadinCompilerVersion => Seq(
       "com.vaadin" % "vaadin-client-compiler" % vaadinCompilerVersion % "provided",
       "com.vaadin" % "vaadin-client-compiler-deps" % "1.0.2" % "provided")),
@@ -155,6 +155,7 @@ object GwtPlugin extends Plugin {
       List(clazz, "-war", warPath.absolutePath) ++ gwtArgs :+ modules).mkString(" ")
 
   private def findGwtModules(srcRoot: File): Seq[String] = {
+    import Path.relativeTo
     val files = (srcRoot ** "*.gwt.xml").get
     val relativeStrings = files.flatMap(_ x relativeTo(srcRoot)).map(_._2)
     relativeStrings.map(_.dropRight(".gwt.xml".length).replace(File.separator, "."))
